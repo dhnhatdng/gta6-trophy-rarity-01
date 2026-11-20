@@ -23,7 +23,16 @@ The blend is per quantile in logit space. Spreads combine each fit's residual wi
 
 ## Backtest
 
-`tools/backtest.py` builds synthetic launches calibrated to the real anchors (638 players tracked on launch night, 3,868 at the first refresh, ~63,000 a day later) and scores by mean pinball loss on the logit scale. Across six simulated worlds — slow/fast player growth, slow/fast earning, low eventual shares — this forecast averages **0.235**, against **0.312** for the curve baseline alone and **1.220** for persistence, winning 4 of 6 worlds outright.
+`tools/backtest.py` builds synthetic launches calibrated to the real anchors (638 players tracked on launch night, 3,868 at the first refresh, ~63,000 a day later) and scores by mean pinball loss on the logit scale. Across six simulated worlds — slow/fast player growth, slow/fast earning, low eventual shares — this forecast averages **0.235**, against **0.312** for the curve baseline alone and **1.220** for persistence, winning 4 of 6 worlds outright:
+
+| world | persistence | curve | this forecast |
+|---|---|---|---|
+| A base | 1.239 | 0.256 | 0.197 |
+| B slow player growth | 1.553 | 0.349 | 0.389 |
+| C no player taper | 0.844 | 0.292 | 0.175 |
+| D fast earning | 0.802 | 0.235 | 0.138 |
+| E slow earning | 1.720 | 0.341 | 0.386 |
+| F low eventual shares | 1.162 | 0.399 | 0.127 |
 
 ---
 
